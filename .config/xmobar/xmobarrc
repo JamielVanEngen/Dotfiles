@@ -1,0 +1,26 @@
+Config { font = "xft:DejaVu Sans Mono:pixelsize=16:antialias=true"
+       , additionalFonts = []
+       , borderColor = "#3c3836"
+       , border = TopB
+       , bgColor = "#3c3836"
+       , fgColor = "#d5c4a1"
+       , alpha = 255
+       , position = TopW L 100
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+		    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }\
+                    \{ %date% "
+       }
+
