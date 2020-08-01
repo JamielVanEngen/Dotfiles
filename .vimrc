@@ -16,6 +16,7 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'matze/vim-move'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 " 2) Airline theme
@@ -29,10 +30,19 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 
+let g:user_emmet_settings = {
+\  'html' : {
+\    'indent_blockelement': 1,
+\  },
+\}
+
 " 4) General vim settings
 :set number
 :set hlsearch
 :set ic
+:set tabstop=4
+:set shiftwidth=4
+:set expandtab
 
 " 5) Macros & custom keybindings
 fun! ToggleNERDTreeWithRefresh()
