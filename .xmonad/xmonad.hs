@@ -62,7 +62,7 @@ myKeys =
 
 	-- Scratchpads
 	("M-S-<Return>", namedScratchpadAction myScratchPads "terminal"),
-	("M-S-s", namedScratchpadAction myScratchPads "firefox-dev"),
+	("M-S-b", namedScratchpadAction myScratchPads "firefox-dev"),
 
 	-- Window focus
 	("M-f", sendMessage (T.Toggle "floats")),
