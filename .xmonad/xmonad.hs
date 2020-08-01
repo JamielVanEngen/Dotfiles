@@ -62,7 +62,7 @@ myKeys =
 
 	-- Scratchpads
 	("M-S-<Return>", namedScratchpadAction myScratchPads "terminal"),
-	("M-S-s", namedScratchpadAction myScratchPads "spotify"),
+	("M-S-s", namedScratchpadAction myScratchPads "firefox-dev"),
 
 	-- Window focus
 	("M-f", sendMessage (T.Toggle "floats")),
@@ -144,7 +144,8 @@ myLayout = avoidStruts $ mouseResize $ windowArrange $ smartBorders $
 -- workspace.
 myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm,
-    NS "spotify" spawnSpot findSpot manageSpot
+    NS "spotify" spawnSpot findSpot manageSpot,
+    NS "firefox-dev" spawnFireDev findFireDev manageFireDev
     ]
     where
         spawnTerm  = myTerminal ++ " --class scratchpad"
@@ -160,9 +161,17 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm,
 	manageSpot = customFloating $ W.RationalRect l t w h
 	    where
 	        h = 0.9
-		w = 0.9
-		t = 0.95 -h
-		l = 0.95 -w
+	        w = 0.9
+	        t = 0.95 -h
+	        l = 0.95 -w
+	spawnFireDev  = "firefox-developer-edition"
+	findFireDev   = className =? "firefoxdeveloperedition"
+	manageFireDev = customFloating $ W.RationalRect l t w h
+	    where
+	        h = 0.9
+	        w = 0.9
+	        t = 0.95 -h
+	        l = 0.95 -w
 
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
