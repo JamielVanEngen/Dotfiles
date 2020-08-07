@@ -1,6 +1,6 @@
 " 1 Plugin region
 " 2 Airline theme
-" 3 NERDTree settings
+" 3 Plugin settings
 " 4 General vim settings
 " 5 Macros and keybindings
 
@@ -23,7 +23,7 @@ call plug#end()
 let g:airline_theme='base16_gruvbox_dark_hard'
 let g:airline_powerline_fonts = 1
 
-" 3) NERDTree settings
+" 3) Plugin settings
 " Autostart NERDTree if no file is specified in the vim command
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -35,6 +35,8 @@ let g:user_emmet_settings = {
 \    'indent_blockelement': 1,
 \  },
 \}
+
+let g:surround_{char2nr('o')} = "{{\r}}"
 
 " 4) General vim settings
 :set number
@@ -59,3 +61,4 @@ let g:move_key_modifier = 'C'
 nmap <silent> <C-e> :call ToggleNERDTreeWithRefresh()<CR>
 map <C-c> @c<CR>
 map <C-v> @v<CR>
+map <C-n> :bn<CR>
