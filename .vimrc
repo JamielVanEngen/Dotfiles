@@ -17,6 +17,7 @@ Plug 'matze/vim-move'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " 2) Airline theme
