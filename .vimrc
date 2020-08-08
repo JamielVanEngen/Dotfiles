@@ -7,7 +7,7 @@
 " 1) PLUGIN REGION
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'tpope/vim-surround'
+Plug 'machakann/vim-sandwich'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'valloric/youcompleteme'
