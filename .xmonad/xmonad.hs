@@ -63,6 +63,7 @@ myKeys =
 	-- Scratchpads
 	("M-S-<Return>", namedScratchpadAction myScratchPads "terminal"),
 	("M-S-b", namedScratchpadAction myScratchPads "firefox-dev"),
+	("M-S-h", namedScratchpadAction myScratchPads "rest-client"),
 
 	-- Window focus
 	("M-f", sendMessage (T.Toggle "floats")),
@@ -143,30 +144,21 @@ myLayout = avoidStruts $ mouseResize $ windowArrange $ smartBorders $
 -- particular program, or have a client always appear on a particular
 -- workspace.
 myScratchPads :: [NamedScratchpad]
-myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm,
-    NS "spotify" spawnSpot findSpot manageSpot,
-    NS "firefox-dev" spawnFireDev findFireDev manageFireDev
+myScratchPads = [ NS "terminal" spawnTerm findTerm dimensions,
+    NS "spotify" spawnSpot findSpot dimensions,
+    NS "firefox-dev" spawnFireDev findFireDev dimensions,
+    NS "rest-client" spawnRestClient findRestClient dimensions
     ]
     where
         spawnTerm  = myTerminal ++ " --class scratchpad"
 	findTerm   = resource =? "scratchpad"
-	manageTerm = customFloating $ W.RationalRect l t w h
-	    where
-	        h = 0.9
-	        w = 0.9
-	        t = 0.95 -h
-	        l = 0.95 -w
 	spawnSpot  = "spotify"
 	findSpot   = resource =? "spotify"
-	manageSpot = customFloating $ W.RationalRect l t w h
-	    where
-	        h = 0.9
-	        w = 0.9
-	        t = 0.95 -h
-	        l = 0.95 -w
 	spawnFireDev  = "firefox-developer-edition"
 	findFireDev   = className =? "firefoxdeveloperedition"
-	manageFireDev = customFloating $ W.RationalRect l t w h
+	spawnRestClient  = myTerminal ++ " --class restclient" 
+	findRestClient   = resource =? "restclient" 
+	dimensions = customFloating $ W.RationalRect l t w h
 	    where
 	        h = 0.9
 	        w = 0.9
